@@ -1,0 +1,7 @@
+[
+  { "productName": "农夫山泉550ml", "category": "饮料", "unit": "箱", "stock": 120, "safeStock": 100, "warehouse": "一号仓" },
+  { "productName": "可口可乐330ml", "category": "饮料", "unit": "箱", "stock": 45, "safeStock": 80, "warehouse": "一号仓" },
+  { "productName": "康师傅红烧牛肉面", "category": "方便食品", "unit": "箱", "stock": 200, "safeStock": 120, "warehouse": "二号仓" },
+  { "productName": "金龙鱼调和油5L", "category": "粮油", "unit": "桶", "stock": 60, "safeStock": 50, "warehouse": "二号仓" },
+  { "productName": "清风抽纸3层", "category": "日用品", "unit": "提", "stock": 15, "safeStock": 60, "warehouse": "三号仓" }
+]

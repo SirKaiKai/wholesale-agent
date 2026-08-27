@@ -1,0 +1,279 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0f0f14;
+  --surface: #1a1a24;
+  --surface-hover: #242430;
+  --border: #2e2e3a;
+  --text: #e4e4ec;
+  --text-muted: #8b8b9a;
+  --accent: #7f77dd;
+  --accent-light: #afa9ec;
+  --user-bubble: #3c3489;
+  --assistant-bubble: #242430;
+  --error: #ef1a1a;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header h1 {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.header .left .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 5px;
+}
+.header .left {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.header .clear {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--error);
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: var(--user-bubble);
+  color: #eeedfe;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: var(--assistant-bubble);
+  border: 1px solid var(--border);
+}
+.message.notCont {
+  display: none;
+}
+
+.input-area {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+}
+
+.input-area textarea {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input-area textarea:focus {
+  border-color: var(--accent);
+}
+
+.input-area button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.input-area button:hover {
+  background: var(--accent-light);
+}
+
+.input-area button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.empty-hint {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 60px;
+  font-size: 14px;
+}
+
+/* ========== 能力标签条（顶部）========== */
+.capability-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  flex-wrap: wrap;
+}
+
+.cap-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  cursor: default;
+  transition: background 0.15s;
+}
+
+.cap-chip:hover {
+  background: var(--surface-hover);
+}
+
+.cap-chip .cap-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.cap-chip .cap-label {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.cap-chip .cap-desc {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.cap-tool .cap-dot { background: #7f77dd; }
+.cap-tool { border-color: rgba(127, 119, 221, 0.4); }
+.cap-kb .cap-dot { background: #1d9e75; }
+.cap-kb { border-color: rgba(29, 158, 117, 0.4); }
+.cap-mix .cap-dot { background: #ef9f27; }
+.cap-mix { border-color: rgba(239, 159, 39, 0.4); }
+
+/* ========== 阶段描述（替代原"Step 1·纯对话基线"）========== */
+.empty-hint .stage-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.empty-hint .stage-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+/* ========== 示例问题卡片（按通道配色）========== */
+.empty-hint .examples {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.empty-hint .example {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  text-align: left;
+}
+
+.empty-hint .example:hover {
+  background: var(--surface-hover);
+  transform: translateX(2px);
+}
+
+.empty-hint .example .example-title {
+  flex: 1;
+  color: var(--text);
+}
+
+/* 通道左色条 + 通道标签 */
+.empty-hint .channel-tool { border-left-color: #7f77dd; }
+.empty-hint .channel-kb { border-left-color: #1d9e75; }
+.empty-hint .channel-mix { border-left-color: #ef9f27; }
+
+.empty-hint .channel-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.empty-hint .tag-tool {
+  background: rgba(127, 119, 221, 0.15);
+  color: #afa9ec;
+}
+.empty-hint .tag-kb {
+  background: rgba(29, 158, 117, 0.15);
+  color: #9fe1cb;
+}
+.empty-hint .tag-mix {
+  background: rgba(239, 159, 39, 0.15);
+  color: #fac775;
+}

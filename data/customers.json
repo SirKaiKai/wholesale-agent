@@ -1,0 +1,29 @@
+[
+  {
+    "customerName": "张三",
+    "company": "宏发百货",
+    "phone": "13800001111",
+    "debtAmount": 12800,
+    "debtDays": 45,
+    "lastFollowUp": "2026-08-20",
+    "level": "B"
+  },
+  {
+    "customerName": "李四",
+    "company": "永辉商贸",
+    "phone": "13900002222",
+    "debtAmount": 36200,
+    "debtDays": 92,
+    "lastFollowUp": "2026-08-05",
+    "level": "A"
+  },
+  {
+    "customerName": "王五",
+    "company": "旺旺食品店",
+    "phone": "13700003333",
+    "debtAmount": 1500,
+    "debtDays": 12,
+    "lastFollowUp": "2026-08-25",
+    "level": "C"
+  }
+]

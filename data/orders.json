@@ -1,0 +1,8 @@
+[
+  { "orderNo": "SO20260701001", "customerName": "张三", "productName": "农夫山泉550ml", "quantity": 200, "amount": 3200, "orderDate": "2026-07-01", "status": "已发货" },
+  { "orderNo": "SO20260705002", "customerName": "李四", "productName": "金龙鱼调和油5L", "quantity": 50, "amount": 4250, "orderDate": "2026-07-05", "status": "已发货" },
+  { "orderNo": "SO20260712003", "customerName": "王五", "productName": "康师傅红烧牛肉面", "quantity": 300, "amount": 5400, "orderDate": "2026-07-12", "status": "待发货" },
+  { "orderNo": "SO20260720004", "customerName": "张三", "productName": "清风抽纸3层", "quantity": 100, "amount": 1800, "orderDate": "2026-07-20", "status": "已发货" },
+  { "orderNo": "SO20260803005", "customerName": "李四", "productName": "可口可乐330ml", "quantity": 150, "amount": 2250, "orderDate": "2026-08-03", "status": "待发货" },
+  { "orderNo": "SO20260810006", "customerName": "王五", "productName": "农夫山泉550ml", "quantity": 120, "amount": 1920, "orderDate": "2026-08-10", "status": "已发货" }
+]
