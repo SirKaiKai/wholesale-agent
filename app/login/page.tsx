@@ -22,7 +22,10 @@ export default function LoginPage() {
     });
 
     if (res.ok) {
-      router.push('/'); // 登录成功回首页
+      // 保留 EdgeOne 预览链接的 eo_token/eo_time 参数，
+      // 否则登录成功回首页时 URL 丢失参数，会被边缘层 401 挡住
+      const search = window.location.search;
+      router.push('/' + search);
       router.refresh();
     } else {
       const data = await res.json().catch(() => ({}));

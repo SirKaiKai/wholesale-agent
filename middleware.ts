@@ -33,7 +33,11 @@ export function middleware(req: NextRequest) {
   if (pathname.startsWith('/api/')) {
     return NextResponse.json({ error: '未授权' }, { status: 401 });
   }
-  return NextResponse.redirect(new URL('/login', req.url));
+  // 重定向到 /login 时保留原始 query（含 EdgeOne 预览链接的 eo_token/eo_time），
+  // 否则重定向后的 /login 丢失参数会被边缘层 401 挡住，造成打不开
+  const loginUrl = req.nextUrl.clone();
+  loginUrl.pathname = '/login';
+  return NextResponse.redirect(loginUrl);
 }
 
 // 哪些路径要进 middleware（排除静态资源就够了，业务白名单交给 isPublicPath）
