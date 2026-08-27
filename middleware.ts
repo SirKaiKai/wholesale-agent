@@ -6,12 +6,14 @@ const SITE_PASSWORD = process.env.SITE_PASSWORD || 'demo123';
 
 /**
  * 白名单路径：不需要登录就能访问
+ * - /login          登录页面本身（必须放行，否则未登录用户访问根会陷入死循环）
  * - /api/login      开锁接口（必须先放行，否则永远登录不上）
  * - /api/mock/**    Agent 工具内部调用的 mock 数据接口（生产部署没有这些路径）
  *
  * 教训：写鉴权时一定要列「白名单路径」，避免"门卫卡住自家钥匙"的死锁
  */
 function isPublicPath(pathname: string) {
+  if (pathname === '/login') return true;
   if (pathname === '/api/login') return true;
   if (pathname === '/api/mock' || pathname.startsWith('/api/mock/')) return true;
   return false;
