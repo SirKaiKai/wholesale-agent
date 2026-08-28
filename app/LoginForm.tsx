@@ -1,10 +1,11 @@
+// app/LoginForm.tsx —— 登录表单组件（被 app/page.tsx 在未登录态时调用）
+// 替代原本独立的 /login 路由：避免 EdgeOne Pages 预览链接下
+// middleware 重定向 / → /login 触发边缘层重写循环。
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
-export default function LoginPage() {
-  const router = useRouter();
+export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -22,11 +23,8 @@ export default function LoginPage() {
     });
 
     if (res.ok) {
-      // 保留 EdgeOne 预览链接的 eo_token/eo_time 参数，
-      // 否则登录成功回首页时 URL 丢失参数，会被边缘层 401 挡住
-      const search = window.location.search;
-      router.push('/' + search);
-      router.refresh();
+      // 整页刷新，确保 cookie 生效后 /api/me 重新判断为 loggedIn
+      window.location.reload();
     } else {
       const data = await res.json().catch(() => ({}));
       setError(data.error || '密码错误');
