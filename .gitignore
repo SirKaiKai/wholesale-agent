@@ -1,5 +1,6 @@
 node_modules/
 .next/
+.next_old_20260828/
 out/
 build/
 .env
@@ -7,3 +8,4 @@ build/
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
+面试速通-批发通Agent.md
