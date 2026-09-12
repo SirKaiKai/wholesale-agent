@@ -14,14 +14,28 @@ export default function Page() {
   const [status, setStatus] = useState<Status>('loading');
 
   useEffect(() => {
+    // 双重兜底：即使 fetch 完全没触发或 JS 加载极慢，6 秒后强制显示登录页
+    const forceShowLogin = setTimeout(() => {
+      setStatus((s) => (s === 'loading' ? 'out' : s));
+    }, 6000);
+
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 5000); // 5 秒超时兜底
+    const abortTimer = setTimeout(() => controller.abort(), 5000); // 5 秒 fetch 超时
 
     fetch('/api/me', { signal: controller.signal })
       .then((r) => r.json())
       .then((d) => setStatus(d.loggedIn ? 'in' : 'out'))
       .catch(() => setStatus('out'))
-      .finally(() => clearTimeout(timer));
+      .finally(() => {
+        clearTimeout(abortTimer);
+        clearTimeout(forceShowLogin);
+      });
+
+    return () => {
+      clearTimeout(forceShowLogin);
+      clearTimeout(abortTimer);
+      controller.abort();
+    };
   }, []);
 
   if (status === 'loading') {
@@ -35,9 +49,12 @@ export default function Page() {
           background: '#f5f6f8',
           color: '#888',
           fontSize: 14,
+          flexDirection: 'column',
+          gap: 12,
         }}
       >
-        加载中…
+        <div>加载中…</div>
+        <div style={{ fontSize: 12, color: '#aaa' }}>若超过 6 秒未响应，将自动显示登录页</div>
       </main>
     );
   }
