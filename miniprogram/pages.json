@@ -1,0 +1,18 @@
+{
+  "pages": [
+    {
+      "path": "pages/login/login",
+      "style": { "navigationBarTitleText": "批发通" }
+    },
+    {
+      "path": "pages/chat/chat",
+      "style": { "navigationBarTitleText": "批发通 Agent" }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "批发通",
+    "navigationBarBackgroundColor": "#1B66FF",
+    "backgroundColor": "#F5F6F8"
+  }
+}

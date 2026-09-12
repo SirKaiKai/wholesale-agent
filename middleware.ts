@@ -32,8 +32,9 @@ export function middleware(req: NextRequest) {
   // 1. 白名单直接放行
   if (isPublicPath(pathname)) return NextResponse.next();
 
-  // 2. 已登录放行
-  const token = req.cookies.get('site_token')?.value;
+  // 2. 已登录放行（两种凭证：浏览器走 site_token cookie；小程序走 x-site-token 请求头，
+  //    小程序对 Set-Cookie 的自动管理不可靠，由前端显式携带）
+  const token = req.cookies.get('site_token')?.value || req.headers.get('x-site-token') || '';
   if (token === SITE_PASSWORD) return NextResponse.next();
 
   // 3. 未登录：API 直接 401；页面本来也都被 isPublicPath 覆盖了（根路径放行），

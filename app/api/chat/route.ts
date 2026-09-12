@@ -35,7 +35,7 @@ export async function POST(req: Request) {
   // 知识库入库（首次自动执行）+ 检索最后一条用户消息
     await ensureIngested();
     const lastUserMsg = [...messages].reverse().find((m: any) => m.role === 'user');
-    const hits = lastUserMsg ? await retrieve(lastUserMsg.content, 3) : [];
+    const hits = lastUserMsg ? await retrieve(lastUserMsg.content, { topK: 3 }) : [];
     const context = buildContext(hits);
   //END
 

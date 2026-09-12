@@ -1,0 +1,112 @@
+
+.page.data-v-0a633310 {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f5f6f8;
+}
+.msgs.data-v-0a633310 {
+  flex: 1;
+  padding: 24rpx 24rpx 0;
+  box-sizing: border-box;
+}
+.empty.data-v-0a633310 {
+  padding: 96rpx 24rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.empty-title.data-v-0a633310 {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1f2329;
+}
+.empty-sub.data-v-0a633310 {
+  font-size: 24rpx;
+  color: #8a94a6;
+  margin: 16rpx 0 48rpx;
+}
+.chip.data-v-0a633310 {
+  width: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx 28rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #1f2329;
+  text-align: center;
+}
+.row.data-v-0a633310 {
+  display: flex;
+  margin-bottom: 24rpx;
+}
+.row.user.data-v-0a633310 {
+  flex-direction: row-reverse;
+}
+.avatar.data-v-0a633310 {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  background: #1b66ff;
+  color: #ffffff;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.row.user .avatar.data-v-0a633310 {
+  background: #8a94a6;
+}
+.bubble.data-v-0a633310 {
+  max-width: 75%;
+  background: #ffffff;
+  border-radius: 4rpx 20rpx 20rpx 20rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #1f2329;
+  word-break: break-all;
+  margin: 0 16rpx;
+}
+.row.user .bubble.data-v-0a633310 {
+  background: #1b66ff;
+  color: #ffffff;
+  border-radius: 20rpx 4rpx 20rpx 20rpx;
+}
+.bottom-pad.data-v-0a633310 {
+  height: 32rpx;
+}
+.input-bar.data-v-0a633310 {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: #ffffff;
+  border-top: 1rpx solid #eef0f3;
+}
+.input.data-v-0a633310 {
+  flex: 1;
+  height: 76rpx;
+  background: #f5f6f8;
+  border-radius: 38rpx;
+  padding: 0 32rpx;
+  font-size: 28rpx;
+}
+.ph.data-v-0a633310 {
+  color: #b3bcc9;
+}
+.send.data-v-0a633310 {
+  margin-left: 16rpx;
+  background: #1b66ff;
+  color: #ffffff;
+  font-size: 28rpx;
+  border-radius: 38rpx;
+  padding: 0 36rpx;
+  line-height: 76rpx;
+  height: 76rpx;
+}
+.send[disabled].data-v-0a633310 {
+  background: #a8c6ff;
+  color: #ffffff;
+}

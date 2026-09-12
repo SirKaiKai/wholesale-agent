@@ -1,0 +1,33 @@
+{
+  "name": "wholesale-agent-demo",
+  "appid": "",
+  "description": "批发通 Agent 小程序 Demo",
+  "versionName": "0.1.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "app-plus": {
+    "usingComponents": true,
+    "nvueStyleCompiler": "uni-app",
+    "compilerVersion": 3,
+    "splashscreen": {
+      "alwaysShowBeforeRender": true,
+      "waiting": true,
+      "autoclose": true,
+      "delay": 0
+    },
+    "modules": {},
+    "distribute": {}
+  },
+  "quickapp": {},
+  "mp-weixin": {
+    "appid": "wxc306b3bf60bd1fe4",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "postcss": true,
+      "minified": true
+    },
+    "usingComponents": true
+  },
+  "vueVersion": "3"
+}

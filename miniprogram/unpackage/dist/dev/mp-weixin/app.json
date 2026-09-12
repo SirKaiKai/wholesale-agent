@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/chat/chat"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "批发通",
+    "navigationBarBackgroundColor": "#1B66FF",
+    "backgroundColor": "#F5F6F8"
+  },
+  "usingComponents": {}
+}
