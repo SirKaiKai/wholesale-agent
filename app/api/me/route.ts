@@ -5,7 +5,22 @@ import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
 export async function GET(req: Request) {
-  const SITE_PASSWORD = process.env.SITE_PASSWORD || 'demo123';
-  const token = cookies().get('site_token')?.value || req.headers.get('x-site-token') || '';
-  return NextResponse.json({ loggedIn: token === SITE_PASSWORD });
+  try {
+    const SITE_PASSWORD = process.env.SITE_PASSWORD || 'demo123';
+    let token = '';
+
+    // EdgeOne Pages 运行时 cookies() 可能不稳定，单独 try 避免整段挂掉
+    try {
+      token = cookies().get('site_token')?.value || '';
+    } catch {}
+
+    if (!token) {
+      token = req.headers.get('x-site-token') || '';
+    }
+
+    return NextResponse.json({ loggedIn: token === SITE_PASSWORD });
+  } catch {
+    // 任何异常都返回未登录，让前端有状态可渲染，不能卡住
+    return NextResponse.json({ loggedIn: false });
+  }
 }

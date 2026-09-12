@@ -14,10 +14,14 @@ export default function Page() {
   const [status, setStatus] = useState<Status>('loading');
 
   useEffect(() => {
-    fetch('/api/me')
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000); // 5 秒超时兜底
+
+    fetch('/api/me', { signal: controller.signal })
       .then((r) => r.json())
       .then((d) => setStatus(d.loggedIn ? 'in' : 'out'))
-      .catch(() => setStatus('out'));
+      .catch(() => setStatus('out'))
+      .finally(() => clearTimeout(timer));
   }, []);
 
   if (status === 'loading') {
