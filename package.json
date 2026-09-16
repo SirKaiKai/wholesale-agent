@@ -6,10 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "mcp:stdio": "tsx mcp-server/src/index.ts",
+    "mcp:http": "tsx mcp-server/src/http.ts",
+    "mcp:test": "tsx mcp-server/test-client.ts",
+    "mcp:test:http": "tsx mcp-server/test-http-client.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.40",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "ai": "^3.3.0",
     "next": "14.2.5",
     "react": "^18.3.1",
@@ -20,6 +25,7 @@
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "tsx": "^4.19.0",
     "typescript": "^5.5.3"
   }
 }
