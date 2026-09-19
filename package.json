@@ -7,10 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "mcp:stdio": "tsx mcp-server/src/index.ts",
-    "mcp:http": "tsx mcp-server/src/http.ts",
-    "mcp:test": "tsx mcp-server/test-client.ts",
-    "mcp:test:http": "tsx mcp-server/test-http-client.ts"
+    "mcp:stdio": "tsx mcp-server/src/index.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.40",
